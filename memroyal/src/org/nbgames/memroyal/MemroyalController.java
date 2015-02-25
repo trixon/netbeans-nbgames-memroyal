@@ -17,6 +17,7 @@ package org.nbgames.memroyal;
 
 import java.util.Observable;
 import java.util.Observer;
+import org.nbgames.core.GameCategory;
 import org.nbgames.core.api.CardGameProvider;
 import org.nbgames.core.api.GameProvider;
 import org.nbgames.core.base.GameController;
@@ -51,6 +52,11 @@ public class MemroyalController extends GameController implements CardGameProvid
         mGamePanel = new MemroyalPanel(this);
         setGamePanel(mGamePanel);
         gameTopComponent.setGamePanel(mGamePanel);
+    }
+
+    @Override
+    public GameCategory getCategory() {
+        return GameCategory.CARD;
     }
 
     @Override
