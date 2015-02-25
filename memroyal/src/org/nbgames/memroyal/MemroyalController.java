@@ -20,7 +20,7 @@ import java.util.Observer;
 import org.nbgames.core.GameCategory;
 import org.nbgames.core.api.CardGameProvider;
 import org.nbgames.core.api.GameProvider;
-import org.nbgames.core.base.GameController;
+import org.nbgames.core.GameController;
 import org.nbgames.core.game.NewGameController;
 import org.nbgames.core.game.NewGameDialogManager;
 import org.openide.DialogDisplayer;
