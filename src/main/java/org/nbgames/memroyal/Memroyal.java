@@ -1,5 +1,5 @@
 /* 
- * Copyright 2015 Patrik Karlsson.
+ * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,23 +31,23 @@ import org.openide.windows.WindowManager;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 @ServiceProviders(value = {
     @ServiceProvider(service = GameProvider.class),
     @ServiceProvider(service = CardGameProvider.class)}
 )
-public class MemroyalController extends GameController implements CardGameProvider, NewGameController, Observer {
+public class Memroyal extends GameController implements CardGameProvider, NewGameController, Observer {
 
     public static final String TAG = "Memroyal";
     private final MemroyalPanel mGamePanel;
     private Rules rules;
 
-    public MemroyalController() {
+    public Memroyal() {
         mGamePanel = null;
     }
 
-    public MemroyalController(MemroyalTopComponent gameTopComponent) {
+    public Memroyal(MemroyalTopComponent gameTopComponent) {
         super(gameTopComponent);
         mGamePanel = new MemroyalPanel(this);
         setGamePanel(mGamePanel);
@@ -90,7 +90,7 @@ public class MemroyalController extends GameController implements CardGameProvid
         WindowManager.getDefault().invokeWhenUIReady(new Runnable() {
             @Override
             public void run() {
-                NewGameDialogManager manager = new NewGameDialogManager(new MemroyalNewGamePanel(), MemroyalController.this);
+                NewGameDialogManager manager = new NewGameDialogManager(new MemroyalNewGamePanel(), Memroyal.this);
                 DialogDisplayer.getDefault().notify(manager.getDialogDescriptor());
             }
         });

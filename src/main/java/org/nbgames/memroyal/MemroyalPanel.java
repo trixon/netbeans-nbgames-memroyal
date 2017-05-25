@@ -1,5 +1,5 @@
 /* 
- * Copyright 2015 Patrik Karlsson.
+ * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,11 +19,11 @@ import org.nbgames.core.base.GamePanel;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class MemroyalPanel extends GamePanel {
 
-    private MemroyalController mMemroyalController;
+    private Memroyal mMemroyalController;
 
     /**
      * Creates new form MemroyalPanel
@@ -32,7 +32,7 @@ public class MemroyalPanel extends GamePanel {
         initComponents();
     }
 
-    public MemroyalPanel(MemroyalController memroyalController) {
+    public MemroyalPanel(Memroyal memroyalController) {
         this();
 
         mMemroyalController = memroyalController;

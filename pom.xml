@@ -8,7 +8,7 @@
     </parent>
     <groupId>org.nbgames</groupId>
     <artifactId>card-memroyal</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>nbm</packaging>
     <build>
         <plugins>

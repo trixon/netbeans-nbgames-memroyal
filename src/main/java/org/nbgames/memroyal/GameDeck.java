@@ -1,5 +1,5 @@
 /* 
- * Copyright 2015 Patrik Karlsson.
+ * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@ import org.nbgames.core.card.PlayingCard.Suit;
 
 /**
  *
- * @author Patrik Karlsson <patrik@trixon.se>
+ * @author Patrik Karlsson
  */
 public class GameDeck extends GameCardList {
 
