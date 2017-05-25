@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,43 +15,33 @@
  */
 package org.nbgames.memroyal;
 
-import java.util.Observable;
-import java.util.Observer;
-import org.nbgames.core.GameCategory;
-import org.nbgames.core.api.CardGameProvider;
-import org.nbgames.core.api.GameProvider;
-import org.nbgames.core.GameController;
-import org.nbgames.core.game.NewGameController;
-import org.nbgames.core.game.NewGameDialogManager;
-import org.openide.DialogDisplayer;
-import org.openide.awt.StatusDisplayer;
+import org.nbgames.core.api.GameCategory;
+import org.nbgames.core.api.GameController;
+import org.nbgames.core.api.service.CardGameProvider;
+import org.nbgames.core.api.ui.GamePanel;
+import org.nbgames.core.api.ui.NewGamePanel;
+import org.nbgames.core.api.ui.OptionsPanel;
 import org.openide.util.lookup.ServiceProvider;
 import org.openide.util.lookup.ServiceProviders;
-import org.openide.windows.WindowManager;
 
 /**
  *
  * @author Patrik Karlsson
  */
 @ServiceProviders(value = {
-    @ServiceProvider(service = GameProvider.class),
-    @ServiceProvider(service = CardGameProvider.class)}
+    @ServiceProvider(service = GameController.class)
+    ,
+    @ServiceProvider(service = CardGameProvider.class)
+}
 )
-public class Memroyal extends GameController implements CardGameProvider, NewGameController, Observer {
+public class Memroyal extends GameController implements CardGameProvider {
 
     public static final String TAG = "Memroyal";
-    private final MemroyalPanel mGamePanel;
-    private Rules rules;
+    private MemroyalPanel mGamePanel;
+    private MemroyalNewGamePanel mNewGamePanel;
+    private OptionPanel mOptionPanel;
 
     public Memroyal() {
-        mGamePanel = null;
-    }
-
-    public Memroyal(MemroyalTopComponent gameTopComponent) {
-        super(gameTopComponent);
-        mGamePanel = new MemroyalPanel(this);
-        setGamePanel(mGamePanel);
-        gameTopComponent.setGamePanel(mGamePanel);
     }
 
     @Override
@@ -60,55 +50,39 @@ public class Memroyal extends GameController implements CardGameProvider, NewGam
     }
 
     @Override
-    public String getOptionsPath() {
-        return "Card/Memroyal";
+    public String getHelp() {
+        return getHelp(Memroyal.class);
     }
 
     @Override
-    public void onRequestNewGameCancel() {
+    public NewGamePanel getNewGamePanel() {
+        if (mNewGamePanel == null) {
+            mNewGamePanel = new MemroyalNewGamePanel();
+        }
+
+        return mNewGamePanel;
+    }
+
+    @Override
+    public OptionsPanel getOptionsPanel() {
+        if (mOptionPanel == null) {
+            mOptionPanel = new OptionPanel();
+        }
+
+        return mOptionPanel;
+    }
+
+    @Override
+    public GamePanel getPanel() {
+        if (mGamePanel == null) {
+            mGamePanel = new MemroyalPanel();
+        }
+
+        return mGamePanel;
     }
 
     @Override
     public void onRequestNewGameStart() {
-        mGamePanel.newGame();
-        updateStatusBar();
-//                topPanel.removeAll();
-//        memroyalPanel = new MemroyalPanel();
-//        setGamePanel(memroyalPanel);
-//        topPanel.add(getGamePanel());
-//        memroyalPanel.reset();
-//        memroyalPanel.getGameDeck().setObserver(this);
-//        rules = new Rules(memroyalPanel.getGameDeck(), Options.getInstance().getVariation());
-//        memroyalPanel.getGameDeck().applyDeckTheme();
-//
-//        getGamePanel().centerInParent();
-
-    }
-
-    @Override
-    public void requestNewGame() {
-        WindowManager.getDefault().invokeWhenUIReady(new Runnable() {
-            @Override
-            public void run() {
-                NewGameDialogManager manager = new NewGameDialogManager(new MemroyalNewGamePanel(), Memroyal.this);
-                DialogDisplayer.getDefault().notify(manager.getDialogDescriptor());
-            }
-        });
-    }
-
-    @Override
-    public void update(Observable obj, Object arg) {
-        if (arg instanceof GameDeckObservable.GameCardEvent) {
-            switch ((GameDeckObservable.GameCardEvent) arg) {
-                case FLIP:
-                    rules.parse();
-                    break;
-            }
-        }
-    }
-
-    @Override
-    public void updateStatusBar() {
-        StatusDisplayer.getDefault().setStatusText(mGamePanel.getGameTitle(), StatusDisplayer.IMPORTANCE_ERROR_HIGHLIGHT);
+        getPanel().newGame();
     }
 }

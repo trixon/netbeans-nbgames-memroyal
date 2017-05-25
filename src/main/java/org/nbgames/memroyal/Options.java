@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +19,7 @@ import java.awt.Color;
 import java.util.prefs.Preferences;
 import org.nbgames.memroyal.Rules.Variation;
 import org.openide.util.NbPreferences;
-import se.trixon.almond.GraphicsHelper;
+import se.trixon.almond.util.GraphicsHelper;
 
 /**
  *

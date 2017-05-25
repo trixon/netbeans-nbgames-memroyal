@@ -52,7 +52,7 @@
     <Component class="javax.swing.JLabel" name="levelLabel">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DictNbg.LEVEL.getString()" type="code"/>
+          <Connection code="DictNbg.LEVEL.toString()" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -72,7 +72,7 @@
     <Component class="javax.swing.JLabel" name="variationLabel">
       <Properties>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="DictNbg.GAME_TYPE.getString()" type="code"/>
+          <Connection code="DictNbg.GAME_TYPE.toString()" type="code"/>
         </Property>
       </Properties>
     </Component>
