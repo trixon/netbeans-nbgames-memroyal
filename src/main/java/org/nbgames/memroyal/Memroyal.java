@@ -17,7 +17,6 @@ package org.nbgames.memroyal;
 
 import org.nbgames.core.api.GameCategory;
 import org.nbgames.core.api.GameController;
-import org.nbgames.core.api.service.CardGameProvider;
 import org.nbgames.core.api.ui.GamePanel;
 import org.nbgames.core.api.ui.NewGamePanel;
 import org.nbgames.core.api.ui.OptionsPanel;
@@ -30,11 +29,8 @@ import org.openide.util.lookup.ServiceProviders;
  */
 @ServiceProviders(value = {
     @ServiceProvider(service = GameController.class)
-    ,
-    @ServiceProvider(service = CardGameProvider.class)
-}
-)
-public class Memroyal extends GameController implements CardGameProvider {
+})
+public class Memroyal extends GameController {
 
     public static final String TAG = "Memroyal";
     private MemroyalPanel mGamePanel;
