@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2017 Patrik Karlsson.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -63,7 +63,7 @@ public class GameCardList extends LinkedList<GameCard> {
     }
 
     private void init() {
-        Preferences preferences = NbPreferences.forModule(org.nbgames.core.card.OptionPanel.class);
+        Preferences preferences = NbPreferences.forModule(org.nbgames.core.card.OptionsPanel.class);
 
         mCardPaths[0] = new CardPath(preferences.get("front0", CardDeckManager.DEFAULT_PATH_FRONT_0), preferences.get("back0", CardDeckManager.DEFAULT_PATH_BACK_0));
         mCardPaths[1] = new CardPath(preferences.get("front1", CardDeckManager.DEFAULT_PATH_FRONT_1), preferences.get("back1", CardDeckManager.DEFAULT_PATH_BACK_1));
