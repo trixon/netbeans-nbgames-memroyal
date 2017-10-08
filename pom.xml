@@ -8,6 +8,7 @@
     </parent>
     <artifactId>card-memroyal</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>memroyal</name>
     <packaging>nbm</packaging>
     <build>
         <plugins>
@@ -19,7 +20,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -95,6 +96,13 @@
             <version>${netbeans.version}</version>
         </dependency>
 
+        <!--Trixon-->
+        <dependency>
+            <groupId>se.trixon.almond</groupId>
+            <artifactId>almond-nbp</artifactId>
+            <version>${almond-nbp.version}</version>
+        </dependency>
+
         <!--NbGames-->
         <dependency>
             <groupId>org.nbgames</groupId>
@@ -105,13 +113,6 @@
             <groupId>org.nbgames</groupId>
             <artifactId>core-card</artifactId>
             <version>${nbgames.version}</version>
-        </dependency>
-
-        <!--Trixon-->
-        <dependency>
-            <groupId>se.trixon.almond</groupId>
-            <artifactId>almond-nbp</artifactId>
-            <version>${almond.version}</version>
         </dependency>
 
         <!--Other-->
